@@ -24,7 +24,9 @@ public class TransactionService {
     }
 
     public List<Transaction> getTransactionsByCustomerId(Long customerId) {
-        return transactionRepository.findByCustomerId(customerId);
+        // Supondo que BankAccount tenha um relacionamento com Customer
+        List<Transaction> transactions = transactionRepository.findByAccountCustomerCustomerId(customerId);
+        return transactions;
     }
 
     public Transaction getTransactionById(Long id) {
@@ -40,7 +42,9 @@ public class TransactionService {
         return null;
     }
 
-    public void deleteTransaction(Long id) {
+     public void deleteTransaction(Long id) {
         transactionRepository.deleteById(id);
     }
 }
+
+

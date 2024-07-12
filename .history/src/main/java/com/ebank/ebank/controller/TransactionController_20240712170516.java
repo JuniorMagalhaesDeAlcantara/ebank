@@ -16,7 +16,7 @@ import com.ebank.ebank.model.Transaction;
 import com.ebank.ebank.service.TransactionService;
 
 @RestController
-@RequestMapping("/api/transaction")
+@RequestMapping("/transaction")
 public class TransactionController {
 
     @Autowired

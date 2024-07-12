@@ -9,7 +9,7 @@ import jakarta.persistence.Id;
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long customer_id;
     private String name;
     private String email;
     private String password;
@@ -40,11 +40,11 @@ public class Customer {
         this.password = password;
     }
 
-    public Long getId() {
-        return id;
+    public Long getCustomer_id() {
+        return customer_id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setCustomer_id(Long customer_id) {
+        this.customer_id = customer_id;
     }
 }

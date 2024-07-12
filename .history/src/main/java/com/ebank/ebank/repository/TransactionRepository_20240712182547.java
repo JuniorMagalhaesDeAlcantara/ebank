@@ -10,6 +10,6 @@ import com.ebank.ebank.model.Transaction;
 @Repository
 public interface TransactionRepository extends JpaRepository<Transaction, Long> {
 
-    List<Transaction> findByCustomerId(Long customerid);    // Consultas personalizadas podem ser adicionadas aqui se necessário
+    List<Transaction> findByCustomerId(Long customer_id);    // Consultas personalizadas podem ser adicionadas aqui se necessário
 }
 

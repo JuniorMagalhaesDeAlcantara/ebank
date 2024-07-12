@@ -21,7 +21,7 @@ public class Transaction {
     private String type;
 
     @ManyToOne
-    @JoinColumn(name = "customer_id")
+    @JoinColumn(name = "id")
     private Customer customer;
 
     // Construtor padrão
