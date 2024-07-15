@@ -8,8 +8,6 @@ import com.ebank.ebank.model.BankAccount;
 
 @Repository
 public interface BankAccountRepository extends JpaRepository<BankAccount, Long> {
-
-    BankAccount findByCustomerId(Long customerId);
     // Consultas personalizadas podem ser adicionadas aqui se necessário
     
 }

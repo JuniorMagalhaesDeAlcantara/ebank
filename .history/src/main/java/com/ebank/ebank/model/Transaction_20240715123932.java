@@ -19,25 +19,19 @@ public class Transaction {
     private Double amount;
     private LocalDateTime timestamp;
     private String type;
-    private String description; // Novo campo para descrição da transação
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
-    @ManyToOne
-    @JoinColumn(name = "account_id") // Exemplo de relacionamento com BankAccount
-    private BankAccount account;
-
     // Construtor padrão
     public Transaction() {}
 
     // Construtor com parâmetros
-    public Transaction(Double amount, LocalDateTime timestamp, String type, String description, Customer customer) {
+    public Transaction(Double amount, LocalDateTime timestamp, String type, Customer customer) {
         this.amount = amount;
         this.timestamp = timestamp;
         this.type = type;
-        this.description = description;
         this.customer = customer;
     }
 
@@ -74,28 +68,12 @@ public class Transaction {
         this.type = type;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public Customer getCustomer() {
         return customer;
     }
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
-    }
-
-    public BankAccount getAccount() {
-        return account;
-    }
-
-    public void setAccount(BankAccount account) {
-        this.account = account;
     }
 
     @Override
@@ -105,7 +83,6 @@ public class Transaction {
                 ", amount=" + amount +
                 ", timestamp=" + timestamp +
                 ", type='" + type + '\'' +
-                ", description='" + description + '\'' +
                 ", customer=" + customer +
                 '}';
     }

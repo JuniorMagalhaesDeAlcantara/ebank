@@ -25,10 +25,9 @@ public class TransactionService {
     @Transactional
     public Transaction deposit(Long customerId, double amount, String description) {
         BankAccount account = bankAccountRepository.findByCustomerId(customerId);
-
+        
         if (account != null) {
-            double oldBalance = account.getBalance();
-            account.setBalance(oldBalance + amount);
+            account.setBalance(account.getBalance() + amount);
             bankAccountRepository.save(account);
 
             Transaction transaction = new Transaction();
@@ -37,7 +36,6 @@ public class TransactionService {
             transaction.setType("Deposit");
             transaction.setDescription(description);
             transaction.setCustomer(account.getCustomer());
-            transaction.setAccount(account); // Definir a conta associada à transação
             return transactionRepository.save(transaction);
         }
         return null; // Conta não encontrada
@@ -46,10 +44,9 @@ public class TransactionService {
     @Transactional
     public Transaction withdraw(Long customerId, double amount, String description) {
         BankAccount account = bankAccountRepository.findByCustomerId(customerId);
-
+        
         if (account != null && account.getBalance() >= amount) {
-            double oldBalance = account.getBalance();
-            account.setBalance(oldBalance - amount);
+            account.setBalance(account.getBalance() - amount);
             bankAccountRepository.save(account);
 
             Transaction transaction = new Transaction();
@@ -67,14 +64,10 @@ public class TransactionService {
     public Transaction transfer(Long fromCustomerId, Long toCustomerId, double amount, String description) {
         BankAccount fromAccount = bankAccountRepository.findByCustomerId(fromCustomerId);
         BankAccount toAccount = bankAccountRepository.findByCustomerId(toCustomerId);
-
+        
         if (fromAccount != null && toAccount != null && fromAccount.getBalance() >= amount) {
-            double fromOldBalance = fromAccount.getBalance();
-            double toOldBalance = toAccount.getBalance();
-
-            fromAccount.setBalance(fromOldBalance - amount);
-            toAccount.setBalance(toOldBalance + amount);
-
+            fromAccount.setBalance(fromAccount.getBalance() - amount);
+            toAccount.setBalance(toAccount.getBalance() + amount);
             bankAccountRepository.save(fromAccount);
             bankAccountRepository.save(toAccount);
 
@@ -92,7 +85,6 @@ public class TransactionService {
             depositTransaction.setType("Transfer In");
             depositTransaction.setDescription(description);
             depositTransaction.setCustomer(toAccount.getCustomer());
-            
             return transactionRepository.save(depositTransaction);
         }
         return null; // Conta não encontrada ou saldo insuficiente

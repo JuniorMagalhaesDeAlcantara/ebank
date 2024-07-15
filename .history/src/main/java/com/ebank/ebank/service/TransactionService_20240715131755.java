@@ -58,6 +58,7 @@ public class TransactionService {
             transaction.setType("Withdrawal");
             transaction.setDescription(description);
             transaction.setCustomer(account.getCustomer());
+            transaction.setAccount(account); // Definir a conta associada à transação
             return transactionRepository.save(transaction);
         }
         return null; // Conta não encontrada ou saldo insuficiente

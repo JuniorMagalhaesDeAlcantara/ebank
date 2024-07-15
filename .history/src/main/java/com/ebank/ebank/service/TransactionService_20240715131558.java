@@ -92,7 +92,6 @@ public class TransactionService {
             depositTransaction.setType("Transfer In");
             depositTransaction.setDescription(description);
             depositTransaction.setCustomer(toAccount.getCustomer());
-            
             return transactionRepository.save(depositTransaction);
         }
         return null; // Conta não encontrada ou saldo insuficiente

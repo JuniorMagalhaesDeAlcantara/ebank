@@ -37,7 +37,6 @@ public class TransactionService {
             transaction.setType("Deposit");
             transaction.setDescription(description);
             transaction.setCustomer(account.getCustomer());
-            transaction.setAccount(account); // Definir a conta associada à transação
             return transactionRepository.save(transaction);
         }
         return null; // Conta não encontrada
@@ -92,7 +91,6 @@ public class TransactionService {
             depositTransaction.setType("Transfer In");
             depositTransaction.setDescription(description);
             depositTransaction.setCustomer(toAccount.getCustomer());
-            
             return transactionRepository.save(depositTransaction);
         }
         return null; // Conta não encontrada ou saldo insuficiente

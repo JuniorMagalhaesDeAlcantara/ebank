@@ -22,10 +22,12 @@ public class BankAccountController {
     @Autowired
     private BankAccountService bankAccountService;
 
-
-    public List<BankAccount> getAllBankAccounts() {
-        return bankAccountService.getAllBankAccounts();
+    // Endpoint para listar todas as contas bancárias com detalhes do cliente
+    @GetMapping("/details")
+    public List<BankAccount> getAllBankAccountsWithDetails() {
+        return bankAccountService.getAllBankAccountsWithDetails();
     }
+
 
     // Endpoint para obter uma conta bancária por ID
     @GetMapping("/{id}")

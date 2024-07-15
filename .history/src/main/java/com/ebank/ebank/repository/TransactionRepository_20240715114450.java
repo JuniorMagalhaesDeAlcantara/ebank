@@ -9,7 +9,7 @@ import com.ebank.ebank.model.Transaction;
 
 @Repository
 public interface TransactionRepository extends JpaRepository<Transaction, Long> {
-    List<Transaction> findByCustomerId(Long customerId);
+    List<Transaction> findByAccountCustomerId(Long customerId);
 }
 
 
