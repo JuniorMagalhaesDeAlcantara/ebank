@@ -55,7 +55,7 @@ E-Bank é uma API de banco digital desenvolvida em Java usando Spring Boot. Esta
 
 ## Testando a API
 
-    Use uma ferramenta como o Insomnia ou Postman para testar os endpoints da API. Abaixo estão alguns exemplos de requisições:
+  Use uma ferramenta como o Insomnia ou Postman para testar os endpoints da API. Abaixo estão alguns exemplos de requisições:
 
 ## Criar Conta 
 
