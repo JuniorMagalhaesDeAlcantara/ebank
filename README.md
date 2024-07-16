@@ -33,7 +33,7 @@ E-Bank é uma API de banco digital desenvolvida em Java usando Spring Boot. Esta
 
 2. Navegue até o diretório do projeto:
     ```bash
-    cd 
+    cd ebank
     
 3. Configure o banco de dados PostgreSQL:
 - **Crie um banco de dados chamado ebank.**
