@@ -3,6 +3,7 @@ package com.ebank.ebank.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.ebank.ebank.model.Customer;
@@ -13,6 +14,9 @@ public class CustomerService {
 
     @Autowired
     private CustomerRepository customerRepository;
+
+        @Autowired
+    private PasswordEncoder passwordEncoder;
 
     public Customer createCustomer(Customer customer) {
         return customerRepository.save(customer);
@@ -37,7 +41,14 @@ public class CustomerService {
         return null;
     }
 
+    public void saveCustomer(Customer customer) {
+        customer.setPassword(passwordEncoder.encode(customer.getPassword()));
+        customerRepository.save(customer);
+    }
+
     public void deleteCustomer(Long id) {
         customerRepository.deleteById(id);
     }
 }
+
+
