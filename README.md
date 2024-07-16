@@ -50,7 +50,7 @@ E-Bank é uma API de banco digital desenvolvida em Java usando Spring Boot. Esta
 
 4. Execute a aplicação
     ```bash
-     ./mvnw spring-boot:run
+      ./mvnw spring-boot:run
 
 
 ## Testando a API
