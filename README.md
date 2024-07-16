@@ -49,7 +49,7 @@ E-Bank é uma API de banco digital desenvolvida em Java usando Spring Boot. Esta
         spring.jpa.hibernate.ddl-auto=update
 
 4. Execute a aplicação
-     ```bash
+    ```bash
      ./mvnw spring-boot:run
 
 
