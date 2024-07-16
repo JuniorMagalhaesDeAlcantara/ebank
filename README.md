@@ -38,8 +38,8 @@ E-Bank é uma API de banco digital desenvolvida em Java usando Spring Boot. Esta
 3. Configure o banco de dados PostgreSQL:
 - **Crie um banco de dados chamado ebank.**
 - **Atualize o arquivo application.properties com suas credenciais do PostgreSQL:**    
-      ```bash
-      spring.application.name=ebank
+  ```bash
+        spring.application.name=ebank
         spring.datasource.url=jdbc:postgresql://localhost:5432/ebank
         spring.datasource.username=seu_usuario
         spring.datasource.password=sua_senha
@@ -49,13 +49,13 @@ E-Bank é uma API de banco digital desenvolvida em Java usando Spring Boot. Esta
         spring.jpa.hibernate.ddl-auto=update
 
 4. Execute a aplicação
-     ```bash
+    ```bash
      ./mvnw spring-boot:run
 
 
 ## Testando a API
 
-   Use uma ferramenta como o Insomnia ou Postman para testar os endpoints da API. Abaixo estão alguns exemplos de requisições:
+Use uma ferramenta como o Insomnia ou Postman para testar os endpoints da API. Abaixo estão alguns exemplos de requisições:
 
 ## Criar Conta 
 
